@@ -1,9 +1,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="Suite" >
-    <test thread-count="1" name="Test" >
+    <test thread-count="2" name="Test" parallel="methods" >
         <classes>
             <class name="com.tmb.tests.LoginPageTests" />
+            <class name="com.tmb.tests.HomepageTests" />
         </classes>
     </test>
 </suite>
