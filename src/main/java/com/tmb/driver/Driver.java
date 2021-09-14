@@ -1,7 +1,6 @@
 package com.tmb.driver;
 
 import com.tmb.constants.FrameworkConstants;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.Objects;
