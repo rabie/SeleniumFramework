@@ -8,6 +8,9 @@ import java.util.Objects;
 
 public class Driver {
 
+    private Driver(){}
+
+
     public static void initDriver(){
         if (Objects.isNull(DriverManager.getDriver())){
             System.setProperty("webdriver.chrome.driver", FrameworkConstants.getCHROMEDRIVERPATH());
