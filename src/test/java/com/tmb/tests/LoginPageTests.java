@@ -5,7 +5,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
 
-public class LoginPageTests extends BaseTest{
+public final class LoginPageTests extends BaseTest{
+
+    private LoginPageTests(){}
 
     @Test
     public void firstTest() throws InterruptedException {
