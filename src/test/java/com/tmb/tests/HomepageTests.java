@@ -13,9 +13,4 @@ public final class HomepageTests extends BaseTest{
     public void test2(){
         DriverManager.getDriver().findElement(By.name("q")).sendKeys("Rabie", Keys.ENTER);
     }
-
-    @Test
-    public void test3(){
-        DriverManager.getDriver().findElement(By.name("q")).sendKeys("Liza", Keys.ENTER);
-    }
 }
