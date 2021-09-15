@@ -1,5 +1,7 @@
 package com.tmb.utils;
 
+import com.tmb.constants.FrameworkConstants;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -15,8 +17,7 @@ public final class ReadPropertyFile {
     static {
         properties = new Properties();
 
-        try(FileInputStream inputStream  = new FileInputStream(System.getProperty("user.dir") +
-                "/src/test/resources/config/config.properties")) {
+        try(FileInputStream inputStream  = new FileInputStream(FrameworkConstants.getConfigfilepath())) {
             properties.load(inputStream);
 
         } catch (FileNotFoundException e) {
@@ -29,7 +30,8 @@ public final class ReadPropertyFile {
     public static String getValue(String key) throws Exception {
         if (Objects.isNull(properties.getProperty(key))|| Objects.isNull(key))
             throw new Exception("Proprety name " + key + " is not found !!");
-        return properties.getProperty(key);
+        return properties.getProperty(key).trim();
     }
+
 
 }
