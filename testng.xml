@@ -3,7 +3,7 @@
 <suite name="Suite" >
     <test thread-count="2" name="Test" parallel="methods" >
         <classes>
-            <class name="com.tmb.tests.PhpTravelsLoginTest" />
+            <class name="com.tmb.tests.YourStoreLoginTest" />
         </classes>
     </test>
 </suite>
