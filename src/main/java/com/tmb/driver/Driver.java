@@ -4,7 +4,6 @@ import com.tmb.constants.FrameworkConstants;
 import com.tmb.utils.ReadPropertyFile;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.io.IOException;
 import java.util.Objects;
 
 public class Driver {
@@ -17,6 +16,7 @@ public class Driver {
             System.setProperty("webdriver.chrome.driver", FrameworkConstants.getChromedriverpath());
             DriverManager.setDriver(new ChromeDriver());
             DriverManager.getDriver().get(ReadPropertyFile.getValue("url"));
+            DriverManager.getDriver().manage().window().maximize();
         }
     }
 

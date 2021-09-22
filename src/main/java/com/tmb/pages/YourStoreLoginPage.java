@@ -14,15 +14,14 @@ public class YourStoreLoginPage {
         return this;
     }
 
-    public YourStoreLoginPage enterPassword(String password) throws InterruptedException {
+    public YourStoreLoginPage enterPassword(String password) {
         DriverManager.getDriver().findElement(passwordInput)
                 .sendKeys(password);
         return this;
     }
 
-    public YourStoreHomePage clickLogin() throws InterruptedException {
+    public YourStoreHomePage clickLogin() {
         DriverManager.getDriver().findElement(loginBtn).click();
-        Thread.sleep(3000);
         return new YourStoreHomePage();
     }
 
