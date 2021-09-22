@@ -12,12 +12,14 @@ public final class YourStoreLoginTest extends BaseTest {
 
     @Test
     public void loginLogoutTest() throws InterruptedException {
-        YourStoreHomePage yourStoreHomePage =new YourStoreLoginPage()
-                .enterEmail("rabie.dexter@gmail.com")
-                .enterPassword("Ad85021!")
-                .clickLogin();
-        yourStoreHomePage.clickMyAccount().clickLogout();
-        String title = DriverManager.getDriver().getTitle();
-        Assert.assertEquals(title, "Account Logout");
+     String title = new YourStoreLoginPage()
+             .enterEmail("rabie.dexter@gmail.com")
+             .enterPassword("Ad85021!")
+             .clickLogin()
+             .clickMyAccount()
+             .clickLogout()
+             .getPageTitle();
+
+     Assert.assertEquals(title, "Account Login");
     }
 }
