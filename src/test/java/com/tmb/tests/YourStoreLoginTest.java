@@ -1,7 +1,5 @@
 package com.tmb.tests;
 
-import com.tmb.driver.DriverManager;
-import com.tmb.pages.YourStoreHomePage;
 import com.tmb.pages.YourStoreLoginPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;

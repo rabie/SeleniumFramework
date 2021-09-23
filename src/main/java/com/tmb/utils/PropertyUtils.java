@@ -1,6 +1,7 @@
 package com.tmb.utils;
 
 import com.tmb.constants.FrameworkConstants;
+import com.tmb.enums.ConfigProperties;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -8,11 +9,11 @@ import java.io.IOException;
 import java.util.Objects;
 import java.util.Properties;
 
-public final class ReadPropertyFile {
+public final class PropertyUtils {
 
     private static Properties properties;
 
-    private ReadPropertyFile(){}
+    private PropertyUtils(){}
 
     static {
         properties = new Properties();
@@ -27,10 +28,10 @@ public final class ReadPropertyFile {
         }
     }
 
-    public static String getValue(String key) throws Exception {
-        if (Objects.isNull(properties.getProperty(key))|| Objects.isNull(key))
+    public static String getValue(ConfigProperties key) throws Exception {
+        if (Objects.isNull(properties.getProperty(key.name().toLowerCase()))|| Objects.isNull(key.name().toLowerCase()))
             throw new Exception("Proprety name " + key + " is not found !!");
-        return properties.getProperty(key).trim();
+        return properties.getProperty(key.name().toLowerCase()).trim();
     }
 
 

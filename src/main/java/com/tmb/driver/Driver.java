@@ -1,7 +1,8 @@
 package com.tmb.driver;
 
 import com.tmb.constants.FrameworkConstants;
-import com.tmb.utils.ReadPropertyFile;
+import com.tmb.enums.ConfigProperties;
+import com.tmb.utils.PropertyUtils;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.Objects;
@@ -15,7 +16,7 @@ public class Driver {
         if (Objects.isNull(DriverManager.getDriver())){
             System.setProperty("webdriver.chrome.driver", FrameworkConstants.getChromedriverpath());
             DriverManager.setDriver(new ChromeDriver());
-            DriverManager.getDriver().get(ReadPropertyFile.getValue("url"));
+            DriverManager.getDriver().get(PropertyUtils.getValue(ConfigProperties.URL));
             DriverManager.getDriver().manage().window().maximize();
         }
     }
