@@ -34,5 +34,4 @@ public final class PropertyUtils {
         return properties.getProperty(key.name().toLowerCase()).trim();
     }
 
-
 }

@@ -15,7 +15,7 @@ public class YourStoreLoginPage extends BasePage{
     }
 
     public YourStoreLoginPage enterPassword(String password) {
-        sendKeys(passwordInput, password, WaitStrategy.PRESENCE);
+        sendKeys(passwordInput, password, WaitStrategy.VISIBLE);
         return this;
     }
 
