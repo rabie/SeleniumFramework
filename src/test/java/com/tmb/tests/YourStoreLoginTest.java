@@ -1,9 +1,13 @@
 package com.tmb.tests;
 
+import com.tmb.pages.YourStoreHomePage;
 import com.tmb.pages.YourStoreLoginPage;
+import com.tmb.reports.ExtentReport;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import java.security.cert.Extension;
 
 public final class YourStoreLoginTest extends BaseTest {
 
@@ -11,13 +15,13 @@ public final class YourStoreLoginTest extends BaseTest {
 
     @Test(dataProvider = "loginTestdata")
     public void loginLogoutTest(String userName, String password){
-     String title = new YourStoreLoginPage()
+        ExtentReport.createTest("loginLogoutTest");
+     YourStoreHomePage homePage = new YourStoreLoginPage()
              .enterEmail(userName)
              .enterPassword(password)
-             .clickLogin()
-             .clickMyAccount()
-             .clickLogout()
-             .getPageTitle();
+             .clickLogin();
+     Assert.assertEquals(homePage.getPageTitle(), "My Account");
+     String title = homePage.clickMyAccount().clickLogout().getPageTitle();
 
      Assert.assertEquals(title, "Account Login");
     }
@@ -25,7 +29,8 @@ public final class YourStoreLoginTest extends BaseTest {
     @DataProvider(name = "loginTestdata", parallel = true)
     public Object[][] getData(){
         return new Object[][]{
-                {"rabie.dexter@gmail.com", "Ad85021!" }
+                {"rabie.dexter@gmail.com", "Ad85021!" },
+                {"rabie.dexter@gmail.com", "Ad850212!" }
 
         };
     }
