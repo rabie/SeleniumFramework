@@ -2,12 +2,9 @@ package com.tmb.tests;
 
 import com.tmb.pages.YourStoreHomePage;
 import com.tmb.pages.YourStoreLoginPage;
-import com.tmb.reports.ExtentReport;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
-import java.security.cert.Extension;
 
 public final class YourStoreLoginTest extends BaseTest {
 
@@ -15,7 +12,7 @@ public final class YourStoreLoginTest extends BaseTest {
 
     @Test(dataProvider = "loginTestdata")
     public void loginLogoutTest(String userName, String password){
-        ExtentReport.createTest("loginLogoutTest");
+
      YourStoreHomePage homePage = new YourStoreLoginPage()
              .enterEmail(userName)
              .enterPassword(password)

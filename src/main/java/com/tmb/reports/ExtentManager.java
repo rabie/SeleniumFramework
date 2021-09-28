@@ -8,13 +8,13 @@ public class ExtentManager {
 
     private static ThreadLocal<ExtentTest> extentTest = new ThreadLocal<>();
 
-    public static ExtentTest getExtentTest() {
+    static ExtentTest getExtentTest() {
         return extentTest.get();
     }
-    public static void setExtentTest(ExtentTest test) {
+    static void setExtentTest(ExtentTest test) {
         extentTest.set(test);
     }
-    public static void unload(){
+    static void unload(){
         extentTest.remove();
     }
 }
