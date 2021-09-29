@@ -29,7 +29,7 @@ public final class PropertyUtils {
     }
 
     public static String getValue(ConfigProperties key) throws Exception {
-        if (Objects.isNull(properties.getProperty(key.name().toLowerCase()))|| Objects.isNull(key.name().toLowerCase()))
+        if (Objects.isNull(properties.getProperty(key.name().toLowerCase().trim()))|| Objects.isNull(key))
             throw new Exception("Proprety name " + key + " is not found !!");
         return properties.getProperty(key.name().toLowerCase()).trim();
     }

@@ -1,7 +1,6 @@
 package com.tmb.pages;
 
 import com.tmb.enums.WaitStrategy;
-import com.tmb.reports.ExtentLogger;
 import org.openqa.selenium.By;
 
 public class YourStoreHomePage extends BasePage{
@@ -12,18 +11,15 @@ public class YourStoreHomePage extends BasePage{
     private final By loginLink = By.linkText("Login");
 
     public YourStoreHomePage clickMyAccount(){
-        click(myAccountLink, WaitStrategy.CLICKABLE);
-        ExtentLogger.pass("Click my Account");
+        click(myAccountLink, WaitStrategy.CLICKABLE, "My Account");
         return this;
     }
 
     public YourStoreLoginPage clickLogout(){
-        click(logoutLink, WaitStrategy.CLICKABLE);
-        click(continueBtn, WaitStrategy.PRESENCE);
-        click(myAccountLink, WaitStrategy.CLICKABLE);
-        click(loginLink, WaitStrategy.CLICKABLE);
-        ExtentLogger.pass("Logout clicked");
-
+        click(logoutLink, WaitStrategy.CLICKABLE, "Logout");
+        click(continueBtn, WaitStrategy.PRESENCE, "Continue");
+        click(myAccountLink, WaitStrategy.CLICKABLE, "My Account");
+        click(loginLink, WaitStrategy.CLICKABLE, "Login");
         return new YourStoreLoginPage();
     }
 }

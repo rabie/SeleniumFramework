@@ -2,20 +2,24 @@ package com.tmb.listners;
 
 import com.tmb.reports.ExtentLogger;
 import com.tmb.reports.ExtentReport;
-import org.testng.*;
-
-import java.io.IOException;
+import org.testng.ISuite;
+import org.testng.ISuiteListener;
+import org.testng.ITestListener;
+import org.testng.ITestResult;
 
 public class ListnerClass implements ITestListener, ISuiteListener {
 
     public void onStart(ISuite suite) {
-        ExtentReport.initReports();
+        try {
+            ExtentReport.initReports();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
-
     public void onFinish(ISuite suite) {
         try {
             ExtentReport.flushReports();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -24,15 +28,29 @@ public class ListnerClass implements ITestListener, ISuiteListener {
     }
 
     public void onTestSuccess(ITestResult result) {
-        ExtentLogger.pass(result.getMethod().getMethodName() + " is Passed");
+        try {
+            ExtentLogger.pass(result.getMethod().getMethodName() + " is Passed", true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void onTestFailure(ITestResult result) {
-        ExtentLogger.fail(result.getMethod().getMethodName() + " is Failed");
+        try {
+            ExtentLogger.fail(result.getMethod().getMethodName() + " is Failed", true);
+            ExtentLogger.fail(result.getThrowable().toString());
+           // ExtentLogger.fail(Arrays.toString(result.getThrowable().getStackTrace()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void onTestSkipped(ITestResult result) {
-        ExtentLogger.skip(result.getMethod().getMethodName() + " is Skipped");
+        try {
+            ExtentLogger.skip(result.getMethod().getMethodName() + " is Skipped", true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }
