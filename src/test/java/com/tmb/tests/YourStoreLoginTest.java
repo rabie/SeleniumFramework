@@ -2,20 +2,23 @@ package com.tmb.tests;
 
 import com.tmb.pages.YourStoreHomePage;
 import com.tmb.pages.YourStoreLoginPage;
+import com.tmb.utils.DataProviderUtils;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import java.util.Map;
 
 public final class YourStoreLoginTest extends BaseTest {
 
     private YourStoreLoginTest(){}
 
-    @Test(dataProvider = "loginTestdata")
-    public void loginLogoutTest(String userName, String password){
+    @Test(dataProvider = "getData", dataProviderClass = DataProviderUtils.class)
+    public void loginLogoutTest(Map<String, String> data){
 
      YourStoreHomePage homePage = new YourStoreLoginPage()
-             .enterEmail(userName)
-             .enterPassword(password)
+             .enterEmail(data.get("username"))
+             .enterPassword(data.get("password"))
              .clickLogin();
      Assert.assertEquals(homePage.getPageTitle(), "My Account");
      String title = homePage.clickMyAccount().clickLogout().getPageTitle();
@@ -23,12 +26,17 @@ public final class YourStoreLoginTest extends BaseTest {
      Assert.assertEquals(title, "Account Login");
     }
 
-    @DataProvider(name = "loginTestdata", parallel = true)
-    public Object[][] getData(){
-        return new Object[][]{
-                {"rabie.dexter@gmail.com", "Ad85021!" },
-                {"rabie.dexter@gmail.com", "Ad850212!" }
+    @Test(dataProvider = "getData", dataProviderClass = DataProviderUtils.class)
+    public void newTest(Map<String, String> data){
 
-        };
+        YourStoreHomePage homePage = new YourStoreLoginPage()
+                .enterEmail(data.get("username"))
+                .enterPassword(data.get("password"))
+                .clickLogin();
+        Assert.assertEquals(homePage.getPageTitle(), "My Account");
+        String title = homePage.clickMyAccount().clickLogout().getPageTitle();
+
+        Assert.assertEquals(title, "Account Login");
     }
+
 }

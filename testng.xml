@@ -3,6 +3,7 @@
 <suite name="Suite1" verbose="1" data-provider-thread-count="2">
     <listeners>
         <listener class-name="com.tmb.listners.ListnerClass"></listener>
+        <listener class-name="com.tmb.listners.MethodInterceptor"></listener>
     </listeners>
     <test name="Regression1" parallel="methods" thread-count="3">
         <classes>

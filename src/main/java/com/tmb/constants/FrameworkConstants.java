@@ -10,6 +10,7 @@ public final class FrameworkConstants {
     private static final String RESOURCESPATH  = System.getProperty("user.dir") + "/src/test/resources/";
     private static final String CHROMEDRIVERPATH = RESOURCESPATH + "drivers/chromedriver.exe" ;
     private static final String CONFIGFILEPATH = RESOURCESPATH + "config/config.properties";
+    private static final String EXCELPATH = RESOURCESPATH + "data/testData.xlsx";
     private static final int EXPLICITWAIT = 10;
     private static final String EXTENTREPORTFOLDERPATH = System.getProperty("user.dir") + "/extent-output/";
     private static String extentReportFilePath = "";
@@ -32,5 +33,8 @@ public final class FrameworkConstants {
             return EXTENTREPORTFOLDERPATH + System.currentTimeMillis() + "/index.html";
         }else
             return EXTENTREPORTFOLDERPATH + "index.html";
+    }
+    public static String getExcelpath() {
+        return EXCELPATH;
     }
 }
