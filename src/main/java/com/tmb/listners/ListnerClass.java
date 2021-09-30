@@ -24,7 +24,10 @@ public class ListnerClass implements ITestListener, ISuiteListener {
         }
     }
     public void onTestStart(ITestResult result) {
-        ExtentReport.createTest(result.getMethod().getMethodName());
+        if (!result.getMethod().getDescription().isEmpty())
+                 ExtentReport.createTest(result.getMethod().getDescription());
+        else
+                ExtentReport.createTest(result.getMethod().getMethodName());
     }
 
     public void onTestSuccess(ITestResult result) {

@@ -46,9 +46,4 @@ public final class ExcelUtils {
         }
         return list;
     }
-
-    public static void main(String[] args) {
-        System.out.println(getTestDetails("DATA"));
-    }
-
 }

@@ -21,18 +21,18 @@ public final class FrameworkConstants {
         }
         return extentReportFilePath;
     }
+    private static String createReportPath() throws Exception {
+        if (PropertyUtils.getValue(ConfigProperties.OVERRIDEREPORTS).equalsIgnoreCase("no")){
+            return EXTENTREPORTFOLDERPATH + System.currentTimeMillis() + "/index.html";
+        }else
+            return EXTENTREPORTFOLDERPATH + "index.html";
+    }
     public static String getChromedriverpath() {
         return CHROMEDRIVERPATH;
     }
     public static String getConfigfilepath(){ return CONFIGFILEPATH; }
     public static int getExplicitwait() {
         return EXPLICITWAIT;
-    }
-    private static String createReportPath() throws Exception {
-        if (PropertyUtils.getValue(ConfigProperties.OVERRIDEREPORTS).equalsIgnoreCase("no")){
-            return EXTENTREPORTFOLDERPATH + System.currentTimeMillis() + "/index.html";
-        }else
-            return EXTENTREPORTFOLDERPATH + "index.html";
     }
     public static String getExcelpath() {
         return EXCELPATH;
