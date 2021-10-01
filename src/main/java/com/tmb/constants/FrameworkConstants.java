@@ -14,7 +14,16 @@ public final class FrameworkConstants {
     private static final int EXPLICITWAIT = 10;
     private static final String EXTENTREPORTFOLDERPATH = System.getProperty("user.dir") + "/extent-output/";
     private static String extentReportFilePath = "";
+    private static final String ALLTESTS = "AllTests";
+    private static final String TESTSDATA = "DATA";
 
+
+    public static String getAllTests() {
+        return ALLTESTS;
+    }
+    public static String getTestsData() {
+        return TESTSDATA;
+    }
     public static String getExtentReportFilePath() throws Exception {
         if (extentReportFilePath.isEmpty()){
             extentReportFilePath = createReportPath();

@@ -1,5 +1,6 @@
 package com.tmb.utils;
 
+import com.tmb.constants.FrameworkConstants;
 import org.testng.annotations.DataProvider;
 
 import java.lang.reflect.Method;
@@ -15,18 +16,17 @@ public final class DataProviderUtils {
         String testName = method.getName();
 
         if (allTestsData.isEmpty()){
-            allTestsData = ExcelUtils.getTestDetails("DATA");
+            allTestsData = ExcelUtils.getTestDetails(FrameworkConstants.getTestsData());
         }
         List<Map<String,String>> testData = new ArrayList<>();
 
         for (int i = 0; i < allTestsData.size() ; i++) {
-            if (allTestsData.get(i).get("testname").equalsIgnoreCase(testName)){
-                if (allTestsData.get(i).get("execute").equalsIgnoreCase("yes")){
+            if (allTestsData.get(i).get("testname").equalsIgnoreCase(testName) &&
+                allTestsData.get(i).get("execute").equalsIgnoreCase("yes")){
                     testData.add(allTestsData.get(i));
-                }
+
             }
         }
-        allTestsData.removeAll(testData);
         return testData.toArray();
 
     }

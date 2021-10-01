@@ -1,5 +1,6 @@
 package com.tmb.tests;
 
+import com.tmb.listners.RetryFailedTests;
 import com.tmb.pages.YourStoreHomePage;
 import com.tmb.pages.YourStoreLoginPage;
 import com.tmb.utils.DataProviderUtils;
@@ -13,7 +14,7 @@ public final class YourStoreLoginTest extends BaseTest {
 
     private YourStoreLoginTest(){}
 
-    @Test(dataProvider = "getData", dataProviderClass = DataProviderUtils.class)
+    @Test
     public void loginLogoutTest(Map<String, String> data){
 
      YourStoreHomePage homePage = new YourStoreLoginPage()
@@ -26,7 +27,7 @@ public final class YourStoreLoginTest extends BaseTest {
      Assert.assertEquals(title, "Account Login");
     }
 
-    @Test(dataProvider = "getData", dataProviderClass = DataProviderUtils.class)
+    @Test
     public void newTest(Map<String, String> data){
 
         YourStoreHomePage homePage = new YourStoreLoginPage()

@@ -4,11 +4,11 @@
     <listeners>
         <listener class-name="com.tmb.listners.ListnerClass"></listener>
         <listener class-name="com.tmb.listners.MethodInterceptor"></listener>
+        <listener class-name="com.tmb.listners.AnnotationsTransformer"></listener>
     </listeners>
     <test name="Regression1" parallel="methods" thread-count="3">
         <classes>
             <class name="com.tmb.tests.YourStoreLoginTest"/>
-
         </classes>
     </test>
 </suite>

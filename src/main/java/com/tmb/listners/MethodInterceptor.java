@@ -1,5 +1,6 @@
 package com.tmb.listners;
 
+import com.tmb.constants.FrameworkConstants;
 import com.tmb.utils.ExcelUtils;
 import org.testng.IMethodInstance;
 import org.testng.IMethodInterceptor;
@@ -13,20 +14,19 @@ public class MethodInterceptor implements IMethodInterceptor {
     @Override
     public List<IMethodInstance> intercept(List<IMethodInstance> list, ITestContext iTestContext) {
 
-        List<Map<String, String>> testDetails = ExcelUtils.getTestDetails("AllTests");
+        List<Map<String, String>> testDetails = ExcelUtils.getTestDetails(FrameworkConstants.getAllTests());
         List<IMethodInstance> result = new ArrayList<>();
 
         for (int i = 0; i <list.size() ; i++) {
             for (int j = 0; j < testDetails.size() ; j++) {
                 if (list.get(i).getMethod().getMethodName()
-                        .equalsIgnoreCase(testDetails.get(j).get("testname"))){
-                    if (testDetails.get(j).get("execute").equalsIgnoreCase("yes")){
+                        .equalsIgnoreCase(testDetails.get(j).get("testname")) &&
+                    testDetails.get(j).get("execute").equalsIgnoreCase("yes")){
                         list.get(i).getMethod().setInvocationCount(Integer.parseInt(testDetails.get(j).get("count")));
                         list.get(i).getMethod().setDescription(testDetails.get(j).get("testdescription"));
                         list.get(i).getMethod().setPriority(Integer.parseInt(testDetails.get(j).get("priority")));
                         result.add(list.get(i));
                     }
-                }
             }
         }
         return result;
