@@ -1,11 +1,8 @@
 package com.tmb.tests;
 
-import com.tmb.listners.RetryFailedTests;
 import com.tmb.pages.YourStoreHomePage;
 import com.tmb.pages.YourStoreLoginPage;
-import com.tmb.utils.DataProviderUtils;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.util.Map;

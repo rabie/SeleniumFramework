@@ -29,7 +29,6 @@ public class ListnerClass implements ITestListener, ISuiteListener {
         else
                 ExtentReport.createTest(result.getMethod().getMethodName());
     }
-
     public void onTestSuccess(ITestResult result) {
         try {
             ExtentLogger.pass(result.getMethod().getMethodName() + " is Passed", true);
@@ -37,7 +36,6 @@ public class ListnerClass implements ITestListener, ISuiteListener {
             e.printStackTrace();
         }
     }
-
     public void onTestFailure(ITestResult result) {
         try {
             ExtentLogger.fail(result.getMethod().getMethodName() + " is Failed", true);
@@ -47,7 +45,6 @@ public class ListnerClass implements ITestListener, ISuiteListener {
             e.printStackTrace();
         }
     }
-
     public void onTestSkipped(ITestResult result) {
         try {
             ExtentLogger.skip(result.getMethod().getMethodName() + " is Skipped", true);
