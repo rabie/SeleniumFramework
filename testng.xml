@@ -9,6 +9,7 @@
     <test name="Regression1" parallel="methods" thread-count="3">
         <classes>
             <class name="com.tmb.tests.YourStoreLoginTest"/>
+            <class name="com.tmb.tests.AmazonTest"/>
         </classes>
     </test>
 </suite>

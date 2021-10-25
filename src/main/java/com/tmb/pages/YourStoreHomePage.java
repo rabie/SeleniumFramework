@@ -14,7 +14,6 @@ public class YourStoreHomePage extends BasePage{
         click(myAccountLink, WaitStrategy.CLICKABLE, "My Account");
         return this;
     }
-
     public YourStoreLoginPage clickLogout(){
         click(logoutLink, WaitStrategy.CLICKABLE, "Logout");
         click(continueBtn, WaitStrategy.PRESENCE, "Continue");
