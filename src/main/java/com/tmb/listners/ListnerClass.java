@@ -1,5 +1,6 @@
 package com.tmb.listners;
 
+import com.tmb.annotations.FrameworkAnnotation;
 import com.tmb.reports.ExtentLogger;
 import com.tmb.reports.ExtentReport;
 import org.testng.ISuite;
@@ -24,10 +25,15 @@ public class ListnerClass implements ITestListener, ISuiteListener {
         }
     }
     public void onTestStart(ITestResult result) {
-        if (!result.getMethod().getDescription().isEmpty())
+       /* if (!result.getMethod().getDescription().isEmpty())
                  ExtentReport.createTest(result.getMethod().getDescription());
-        else
-                ExtentReport.createTest(result.getMethod().getMethodName());
+        else*/
+        ExtentReport.createTest(result.getMethod().getMethodName());
+        ExtentReport.addAuthors(result.getMethod().getConstructorOrMethod()
+                .getMethod().getAnnotation(FrameworkAnnotation.class).author());
+        ExtentReport.addCategories(result.getMethod().getConstructorOrMethod()
+                .getMethod().getAnnotation(FrameworkAnnotation.class).category());
+
     }
     public void onTestSuccess(ITestResult result) {
         try {

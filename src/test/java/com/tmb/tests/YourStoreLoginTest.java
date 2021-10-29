@@ -1,7 +1,10 @@
 package com.tmb.tests;
 
+import com.tmb.annotations.FrameworkAnnotation;
+import com.tmb.enums.CategoryType;
 import com.tmb.pages.YourStoreHomePage;
 import com.tmb.pages.YourStoreLoginPage;
+import com.tmb.reports.ExtentManager;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -11,6 +14,7 @@ public final class YourStoreLoginTest extends BaseTest {
 
     private YourStoreLoginTest(){}
 
+    @FrameworkAnnotation(author = {"Reda", "Nawres"}, category = {CategoryType.REGRESSION, CategoryType.SANITY})
     @Test
     public void loginLogoutTest(Map<String, String> data){
 
