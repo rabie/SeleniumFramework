@@ -30,13 +30,13 @@ public final class FrameworkConstants {
     public static String getTestsData() {
         return TESTSDATA;
     }
-    public static String getExtentReportFilePath() throws Exception {
+    public static String getExtentReportFilePath(){
         if (extentReportFilePath.isEmpty()){
             extentReportFilePath = createReportPath();
         }
         return extentReportFilePath;
     }
-    private static String createReportPath() throws Exception {
+    private static String createReportPath(){
         if (PropertyUtils.getValue(ConfigProperties.OVERRIDEREPORTS).equalsIgnoreCase("no")){
             return EXTENTREPORTFOLDERPATH + System.currentTimeMillis() + "/index.html";
         }else

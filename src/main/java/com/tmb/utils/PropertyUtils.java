@@ -2,6 +2,7 @@ package com.tmb.utils;
 
 import com.tmb.constants.FrameworkConstants;
 import com.tmb.enums.ConfigProperties;
+import com.tmb.exceptions.PropertyFileUsageException;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -28,9 +29,9 @@ public final class PropertyUtils {
         }
     }
 
-    public static String getValue(ConfigProperties key) throws Exception {
+    public static String getValue(ConfigProperties key){
         if (Objects.isNull(properties.getProperty(key.name().toLowerCase().trim()))|| Objects.isNull(key))
-            throw new Exception("Proprety name " + key + " is not found !!");
+            throw new PropertyFileUsageException("Proprety name " + key + " is not found !!");
         return properties.getProperty(key.name().toLowerCase()).trim();
     }
 

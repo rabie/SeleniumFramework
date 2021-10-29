@@ -4,7 +4,6 @@ import com.tmb.annotations.FrameworkAnnotation;
 import com.tmb.enums.CategoryType;
 import com.tmb.pages.YourStoreHomePage;
 import com.tmb.pages.YourStoreLoginPage;
-import com.tmb.reports.ExtentManager;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

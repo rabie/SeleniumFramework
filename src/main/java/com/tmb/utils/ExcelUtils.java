@@ -1,6 +1,8 @@
 package com.tmb.utils;
 
 import com.tmb.constants.FrameworkConstants;
+import com.tmb.exceptions.FrameworkException;
+import com.tmb.exceptions.InvalidPathForExcelException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -40,9 +42,10 @@ public final class ExcelUtils {
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+           throw new InvalidPathForExcelException("Excel file you're trying to read is not found");
         } catch (InvalidFormatException e) {
-            e.printStackTrace();
+            throw new FrameworkException("I/O Exception while reading Excel file");
+
         }
         return list;
     }
