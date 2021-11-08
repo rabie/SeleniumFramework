@@ -39,6 +39,12 @@
             <artifactId>extentreports</artifactId>
             <version>5.0.8</version>
         </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.0.3</version>
+        </dependency>
+
     </dependencies>
 <!--    <build> &lt;!&ndash;For Lambok exception with Extent Report&ndash;&gt;
         <plugins>
