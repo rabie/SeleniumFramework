@@ -77,7 +77,7 @@
                 </configuration>
             </plugin>
         </plugins>-->
-       <finaName>seleniumframework</finaName>    
+       <finalName>seleniumframework</finalName>    
             
     </build>
 
