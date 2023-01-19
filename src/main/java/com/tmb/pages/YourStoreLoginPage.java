@@ -9,6 +9,7 @@ public class YourStoreLoginPage extends BasePage{
     private final By passwordInput = By.id("input-password");
     private final By loginBtn = By.xpath("//input[@type='submit']");
 
+
     public YourStoreLoginPage enterEmail(String email ){
         sendKeys(emailInput, email, WaitStrategy.PRESENCE, "Email");
         return this;

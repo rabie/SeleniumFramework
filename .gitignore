@@ -6,5 +6,5 @@
 .idea
 *.class
 target/
-*.html
-*.xlsx
+*.htmlcls
+

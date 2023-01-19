@@ -38,6 +38,7 @@ public final class ExtentReport {
         }
     }
     public static void createTest(String testCaseName){
+
         ExtentManager.setExtentTest(extent.createTest(testCaseName));
     }
     //using Custom annotation to add Authors and Categories
