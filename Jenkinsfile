@@ -11,7 +11,7 @@ pipeline {
         stage('Build Image') {
             steps {
                 //sh
-                bat "docker build -t jerry42/SeleniumFramework ."
+                bat "docker build -t jerry42/seleniumframework ."
             }
         }
         stage('Push Image') {
@@ -19,7 +19,7 @@ pipeline {
 			    withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'pass', usernameVariable: 'user')]) {
                     //sh
 			        bat "docker login --username=${user} --password=${pass}"
-			        bat "docker push jerry42/SeleniumFramework:latest"
+			        bat "docker push jerry42/seleniumframework:latest"
 			    }                           
             }
         }
