@@ -10,7 +10,7 @@ pipeline {
                 }
             }
             steps{
-                bat 'mvn clean install -DskipTests'
+                bat 'mvn clean package -DskipTests'
             }
         }
         stage('Build Image') {
