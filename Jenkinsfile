@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build Jar') {
             agent{
-                docker{
+                anyc{
                     image 'maven:3-alpine'
                     args '-V C:/Users/admin/Desktop/.m2:/root/.m2'
                 }
